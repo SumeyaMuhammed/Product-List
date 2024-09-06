@@ -1,7 +1,66 @@
-.attribution {
-  font-size: 11px;
-  text-align: center;
+/* common styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.attribution a {
-  color: hsl(228, 45%, 44%);
+body {
+  font-family: "Red Hat Display", sans-serif;
+  background-color: hsl(13, 31%, 94%);
+}
+header {
+  font-weight: 900;
+  color: hsl(14, 65%, 9%);
+  /* text-shadow: 0.2px 0.2px 1px hsl(14, 86%, 42%); */
+}
+.add-cart,
+.quantity {
+  width: 160px;
+  padding: 10px;
+  border-radius: 25px;
+  display: flex;
+  border: 1.2px solid hsl(14, 25%, 72%);
+}
+.add-cart {
+  justify-content: space-around;
+  background-color: hsl(0, 0%, 100%);
+}
+.add-cart span {
+  font-size: 16px;
+  font-weight: 500;
+}
+.quantity {
+  background-color: hsl(14, 86%, 42%);
+  justify-content: space-between;
+}
+.circle-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  border: 1px solid hsl(0, 0%, 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.quantity span {
+  color: hsl(0, 0%, 100%);
+}
+.caption {
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 20px;
+}
+.caption h6 {
+  font-size: 18px;
+  color: hsl(0, 0%, 71%);
+}
+.caption h3 {
+  font-size: 20px;
+}
+.caption p {
+  color: hsl(14, 79%, 46%);
+  font-weight: 700;
+  font-size: 18px;
 }
