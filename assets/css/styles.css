@@ -8,13 +8,14 @@ body {
   font-family: "Red Hat Display", sans-serif;
   background-color: hsl(13, 31%, 94%);
 }
+
+/* aside 1 */
 header {
   font-weight: 900;
   color: hsl(14, 65%, 9%);
-  /* text-shadow: 0.2px 0.2px 1px hsl(14, 86%, 42%); */
 }
 .add-cart,
-.quantity {
+.products .quantity {
   width: 160px;
   padding: 10px;
   border-radius: 25px;
@@ -29,7 +30,7 @@ header {
   font-size: 16px;
   font-weight: 500;
 }
-.quantity {
+.products .quantity {
   background-color: hsl(14, 86%, 42%);
   justify-content: space-between;
 }
@@ -59,8 +60,91 @@ header {
 .caption h3 {
   font-size: 20px;
 }
-.caption p {
+.caption p,
+.item-count {
   color: hsl(14, 79%, 46%);
   font-weight: 700;
   font-size: 18px;
+}
+
+/* aside 2 */
+.ordered-cart {
+  background-color: hsl(0, 0%, 100%);
+  width: 90%;
+  margin: 20px auto;
+  border-radius: 10px;
+  padding: 20px;
+}
+.ordered-cart h2 {
+  color: hsl(14, 79%, 46%);
+}
+.ordered-cart .empty-cart svg {
+  width: 100px;
+  margin: 20px 80px;
+}
+.empty-cart p {
+  color: hsl(12, 20%, 44%);
+  text-align: center;
+  font-weight: 500;
+}
+.added-cart ul li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid hsl(12, 20%, 44%);
+  padding: 15px 0;
+}
+.ordered-cart .quantity {
+  margin-top: 7px;
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+}
+.item-count {
+  font-size: 14px;
+}
+.item-price {
+  font-size: 12px;
+}
+.item-price b {
+  font-size: 14px;
+  font-weight: 200;
+}
+.total-price {
+  font-size: 14px;
+}
+.remove-item {
+  width: 17px;
+  height: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1.2px solid hsl(12, 20%, 44%);
+  border-radius: 50px;
+}
+.total-order h1 {
+  text-shadow: 0.2px 0.2px 1px hsl(14, 86%, 42%);
+}
+.added-cart .carbon-neutral {
+  background-color: hsl(13, 31%, 94%);
+  padding: 5px;
+  margin: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.carbon-neutral p {
+  font-size: 12px;
+}
+.carbon-neutral p span {
+  font-weight: bold;
+}
+button {
+  padding: 12px 85px;
+  background-color: hsl(14, 86%, 42%);
+  border-radius: 20px;
+  border: none;
+  color: hsl(0, 0%, 100%);
+  margin: 5px auto;
 }
