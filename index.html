@@ -12,21 +12,28 @@
       href="./assets/images/favicon-32x32.png"
     />
 
+    <!-- link Red Hat Texts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+
     <!-- link css -->
     <link rel="stylesheet" href="assets/css/styles.css">
 
     <title>Product list with cart</title>
   </head>
   <body>
-    <header class="title">Desserts</header>
-
+    <div class="all-content">
+      <header class="title">Desserts</header>
     <main>
       <aside>
         <section class="products product-1">
-          <img
-            src="./assets/images/image-waffle-tablet.jpg"
-            alt="Waffle"
-          />
+          <picture>
+            <source srcset="./assets/images/image-waffle-desktop.jpg" media="(min-width: 1200px)">
+            <source srcset="./assets/images/image-waffle-tablet.jpg" media="(min-width: 768px)">
+            <source srcset="./assets/images/image-waffle-mobile.jpg" media="(max-width: 767px)">
+            <img src="./assets/images/image-waffle-thumbnail.jpg" alt="waffle">
+          </picture>
           <div class="add-cart">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -88,10 +95,12 @@
           </div>
         </section>
         <section class="products product-2">
-          <img
-            src="./assets/images/image-creme-brulee-tablet.jpg"
-            alt="Crème Brûlèe "
-          />
+          <picture>
+            <source srcset="./assets/images/image-creme-brulee-desktop.jpg" media="(min-width: 1200px)">
+            <source srcset="./assets/images/image-creme-brulee-tablet.jpg" media="(min-width: 768px)">
+            <source srcset="./assets/images/image-creme-brulee-mobile.jpg" media="(max-width: 767px)">
+            <img src="./assets/images/image-creme-brulee-thumbnail.jpg" alt="creme brulee">
+          </picture>
           <div class="add-cart">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -151,10 +160,12 @@
           </div>
         </section>
         <section class="products product-3">
-          <img
-            src="./assets/images/image-macaron-tablet.jpg"
-            alt="Macaron"
-          />
+          <picture>
+            <source srcset="./assets/images/image-macaron-desktop.jpg" media="(min-width: 1200px)">
+            <source srcset="./assets/images/image-macaron-tablet.jpg" media="(min-width: 768px)">
+            <source srcset="./assets/images/image-macaron-mobile.jpg" media="(max-width: 767px)">
+            <img src="./assets/images/image-macaron-thumbnail.jpg" alt="macaron">
+          </picture>
           <div class="add-cart">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -216,10 +227,12 @@
           </div>
         </section>
         <section class="products product-4">
-          <img
-            src="./assets/images/image-tiramisu-tablet.jpg"
-            alt="Tiramisu"
-          />
+          <picture>
+            <source srcset="./assets/images/image-tiramisu-desktop.jpg" media="(min-width: 1200px)">
+            <source srcset="./assets/images/image-tiramisu-tablet.jpg" media="(min-width: 768px)">
+            <source srcset="./assets/images/image-tiramisu-mobile.jpg" media="(max-width: 767px)">
+            <img src="./assets/images/image-tiramisu-thumbnail.jpg" alt="tiramisu">
+          </picture>
           <div class="add-cart">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -281,10 +294,12 @@
           </div>
         </section>
         <section class="products product-5">
-          <img
-            src="./assets/images/image-baklava-tablet.jpg"
-            alt="Baklava"
-          />
+          <picture>
+            <source srcset="./assets/images/image-baklava-desktop.jpg" media="(min-width: 1200px)">
+            <source srcset="./assets/images/image-baklava-tablet.jpg" media="(min-width: 768px)">
+            <source srcset="./assets/images/image-baklava-mobile.jpg" media="(max-width: 767px)">
+            <img src="./assets/images/image-baklava-thumbnail.jpg" alt="Responsive Image">
+          </picture>
           <div class="add-cart">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -346,10 +361,12 @@
           </div>
         </section>
         <section class="products product-6">
-          <img
-            src="./assets/images/image-meringue-tablet.jpg"
-            alt="Pie"
-          />
+          <picture>
+            <source srcset="./assets/images/image-maringue-desktop.jpg" media="(min-width: 1200px)">
+            <source srcset="./assets/images/image-maringue-tablet.jpg" media="(min-width: 768px)">
+            <source srcset="./assets/images/image-maringue-mobile.jpg" media="(max-width: 767px)">
+            <img src="./assets/images/image-maringue-thumbnail.jpg" alt="maringue">
+          </picture>
           <div class="add-cart">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -411,10 +428,12 @@
           </div>
         </section>
         <section class="products product-7">
-          <img
-            src="./assets/images/image-cake-tablet.jpg"
-            alt="Cake"
-          />
+          <picture>
+            <source srcset="./assets/images/image-cake-desktop.jpg" media="(min-width: 1200px)">
+            <source srcset="./assets/images/image-cake-tablet.jpg" media="(min-width: 768px)">
+            <source srcset="./assets/images/image-cake-mobile.jpg" media="(max-width: 767px)">
+            <img src="./assets/images/image-cake-thumbnail.jpg" alt="cake">
+          </picture>
           <div class="add-cart">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -476,10 +495,12 @@
           </div>
         </section>
         <section class="products product-8">
-          <img
-            src="./assets/images/image-brownie-tablet.jpg"
-            alt="Browenie"
-          />
+          <picture>
+            <source srcset="./assets/images/image-brownie-desktop.jpg" media="(min-width: 1200px)">
+            <source srcset="./assets/images/image-brownie-tablet.jpg" media="(min-width: 768px)">
+            <source srcset="./assets/images/image-brownie-mobile.jpg" media="(max-width: 767px)">
+            <img src="./assets/images/image-brownie-thumbnail.jpg" alt="brownie">
+          </picture>
           <div class="add-cart">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -541,10 +562,12 @@
           </div>
         </section>
         <section class="products product-9">
-          <img
-            src="./assets/images/image-panna-cotta-tablet.jpg"
-            alt="Panna Cotta"
-          />
+          <picture>
+            <source srcset="./assets/images/image-panna-cotta-desktop.jpg" media="(min-width: 1200px)">
+            <source srcset="./assets/images/image-panna-cotta-tablet.jpg" media="(min-width: 768px)">
+            <source srcset="./assets/images/image-panna-cotta-mobile.jpg" media="(max-width: 767px)">
+            <img src="./assets/images/image-panna-cotta-thumbnail.jpg" alt="panna-cotta">
+          </picture>
           <div class="add-cart">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -617,7 +640,8 @@
           </div>
       </aside>
     </main>
-
+    </div>
+    
     <footer class="attribution">
       Coded by <a href="#">@Sumeya Muhammed</a>.
     </footer>
