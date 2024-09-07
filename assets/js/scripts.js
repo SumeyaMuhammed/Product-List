@@ -1,17 +1,11 @@
-function updateImageSource() {
-  const img = document.querySelector(".products img");
-  const screenWidth = window.innerWidth;
-
-  if (screenWidth <= 600) {
-    img.src = "assets/images/image-waffle-mobile.jpg";
-  } else if (screenWidth > 600 && screenWidth <= 1200) {
-    img.src = "assets/images/image-waffle-tablet.jpg";
-  } else {
-    img.src = "assets/images/image-waffle-desktop.jpg";
-  }
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  updateImageSource();
-  window.addEventListener("resize", updateImageSource);
+const products = document.querySelectorAll(".products");
+products.forEach((product) => {
+  const add_to_cart = product.querySelector(".add-cart");
+  const quantity = product.querySelector(".quantity");
+  const img = product.querySelector("img");
+  add_to_cart.addEventListener("click", () => {
+    add_to_cart.style.display = "none";
+    quantity.style.display = "flex";
+    img.classList.add("selected");
+  });
 });
