@@ -14,9 +14,12 @@ header {
   font-weight: 900;
   color: hsl(14, 65%, 9%);
 }
+.products img {
+  cursor: pointer;
+}
 .add-cart,
 .products .quantity {
-  width: 160px;
+  width: 150px;
   padding: 10px;
   border-radius: 25px;
   display: flex;
@@ -53,20 +56,21 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  margin: 20px;
+  margin: 0px 20px 20px;
 }
 .caption h6 {
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 100px;
   color: hsl(0, 0%, 71%);
 }
 .caption h3 {
-  font-size: 20px;
+  font-size: 18px;
 }
 .caption p,
 .item-count {
   color: hsl(14, 79%, 46%);
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 /* aside 2 */
@@ -206,4 +210,31 @@ button {
 .btn2 {
   padding: 10px 2px !important;
   width: 100%;
+}
+@media (max-width: 600px) {
+  header {
+    font-size: 30px;
+    margin: 20px 0;
+  }
+  .all-content {
+    width: 90%;
+    margin: 10px auto;
+  }
+  .products img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  .products img.selected {
+    border: 2px solid hsl(14, 86%, 42%);
+  }
+  .add-cart,
+  .products .quantity {
+    position: relative;
+    bottom: 20px;
+    margin: 0 auto;
+    z-index: 1;
+  }
+  .products .quantity {
+    display: none;
+  }
 }
