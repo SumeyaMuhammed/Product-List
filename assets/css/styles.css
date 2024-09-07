@@ -14,8 +14,8 @@ header {
   font-weight: 900;
   color: hsl(14, 65%, 9%);
 }
-.products img {
-  cursor: pointer;
+.products img.selected {
+  border: 2.5px solid hsl(14, 86%, 42%);
 }
 .add-cart,
 .products .quantity {
@@ -223,9 +223,6 @@ button {
   .products img {
     width: 100%;
     border-radius: 10px;
-  }
-  .products img.selected {
-    border: 2px solid hsl(14, 86%, 42%);
   }
   .add-cart,
   .products .quantity {
