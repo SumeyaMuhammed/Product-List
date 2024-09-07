@@ -25,6 +25,7 @@ header {
 .add-cart {
   justify-content: space-around;
   background-color: hsl(0, 0%, 100%);
+  cursor: pointer;
 }
 .add-cart span {
   font-size: 16px;
@@ -42,6 +43,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .quantity span {
   color: hsl(0, 0%, 100%);
@@ -70,7 +72,7 @@ header {
 /* aside 2 */
 .ordered-cart {
   background-color: hsl(0, 0%, 100%);
-  width: 90%;
+  max-width: 300px;
   margin: 20px auto;
   border-radius: 10px;
   padding: 20px;
@@ -122,6 +124,9 @@ header {
   border: 1.2px solid hsl(12, 20%, 44%);
   border-radius: 50px;
 }
+.total-order {
+  display: flex;
+}
 .total-order h1 {
   text-shadow: 0.2px 0.2px 1px hsl(14, 86%, 42%);
 }
@@ -147,4 +152,58 @@ button {
   border: none;
   color: hsl(0, 0%, 100%);
   margin: 5px auto;
+  cursor: pointer;
+}
+.order-confirmation {
+  display: none;
+  width: 100%;
+  height: 100%;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.order-confirmed {
+  width: 320px;
+  border-radius: 15px;
+  padding: 20px 20px;
+
+  background-color: hsl(0, 0%, 100%);
+}
+.order-confirmation p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+.order-confirmation li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.order-confirmation .image img {
+  width: 50px;
+  height: 50px;
+}
+.order-confirmation .item-detail {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px;
+}
+.order-confirmation .item-info-container {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+.order-confirmation .total-order {
+  justify-content: space-between;
+}
+.btn2 {
+  padding: 10px 2px !important;
+  width: 100%;
 }
