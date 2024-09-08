@@ -211,6 +211,20 @@ button {
   padding: 10px 2px !important;
   width: 100%;
 }
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+footer a {
+  text-decoration: none;
+  color: hsl(0, 100%, 0%);
+}
+footer a:hover {
+  text-decoration: dashed;
+  color: hsl(12, 20%, 44%);
+}
 @media (max-width: 600px) {
   header {
     font-size: 30px;
