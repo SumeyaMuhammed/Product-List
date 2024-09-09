@@ -11,18 +11,28 @@ products.forEach((product) => {
 });
 
 const quantity_box = document.querySelectorAll(".products .quantity");
+var total_item = document.querySelector(".ordered-cart h2 span");
+console.log(total_item);
+// var total_item_number = parseInt(total_item, 10);
+// console.log(total_item_number);
+result = 0;
+
 quantity_box.forEach((quantity_box) => {
   const decrease = quantity_box.querySelector(".decrease");
   decrease.addEventListener("click", () => {
     var quantity = quantity_box.querySelector("span");
+    // console.log(quantity);
     var number = quantity.innerHTML;
-    console.log(number);
+    // console.log(number);
     num = parseInt(number, 10);
     console.log(num);
     if (num > 0) {
       num = num - 1;
-      console.log(num);
+      // console.log(num);
       quantity.innerHTML = num;
+      result -= 1;
+      console.log(result);
+      total_item.innerHTML = result;
     } else {
       return;
     }
@@ -32,11 +42,14 @@ quantity_box.forEach((quantity_box) => {
   increase.addEventListener("click", () => {
     var quantity = quantity_box.querySelector("span");
     var number = quantity.innerHTML;
-    console.log(number);
+    // console.log(number);
     num = parseInt(number, 10);
-    console.log(num);
+    // console.log(num);
     num += 1;
-    console.log(num);
+    // console.log(num);
     quantity.innerHTML = num;
+    result += 1;
+    console.log(result);
+    total_item.innerHTML = result;
   });
 });
