@@ -14,6 +14,10 @@ header {
   font-weight: 900;
   color: hsl(14, 65%, 9%);
 }
+.products img {
+  border-radius: 10px;
+  width: 100%;
+}
 .products img.selected {
   border: 3px solid hsl(14, 86%, 42%);
 }
@@ -23,9 +27,11 @@ header {
   padding: 10px;
   border-radius: 25px;
   display: flex;
+  align-items: center;
   border: 1.2px solid hsl(14, 25%, 72%);
 }
 .add-cart {
+  display: flex;
   justify-content: space-around;
   background-color: hsl(0, 0%, 100%);
   cursor: pointer;
@@ -94,13 +100,17 @@ header {
 .ordered-cart h2 {
   color: hsl(14, 79%, 46%);
 }
+.empty-cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .ordered-cart .empty-cart svg {
   width: 100px;
-  margin: 20px 80px;
 }
 .empty-cart p {
   color: hsl(12, 20%, 44%);
-  text-align: center;
   font-weight: 500;
 }
 .added-cart {
@@ -154,11 +164,11 @@ ul li {
 }
 .added-cart .carbon-neutral {
   background-color: hsl(13, 31%, 94%);
-  padding: 5px;
   margin: 10px;
   border-radius: 10px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 10px;
   align-items: center;
 }
 .carbon-neutral p {
@@ -168,8 +178,9 @@ ul li {
   font-weight: bold;
 }
 button {
-  padding: 12px 85px;
+  padding: 12px 5px;
   background-color: hsl(14, 86%, 42%);
+  width: 100%;
   border-radius: 20px;
   border: none;
   color: hsl(0, 0%, 100%);
@@ -188,7 +199,7 @@ button {
   left: 0;
   top: 0;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 .order-confirmed {
   width: 320px;
@@ -218,6 +229,9 @@ button {
   justify-content: space-between;
   width: 50%;
 }
+.order-confirmation .total-order {
+  background-color: hsl(13, 31%, 94%);
+}
 .btn2 {
   padding: 10px 2px !important;
   width: 100%;
@@ -245,9 +259,15 @@ a:hover {
 }
 footer p {
   text-align: center;
+  margin-top: 50px;
+}
+.social-icons {
+  width: 60%;
+  justify-content: space-around;
+  margin: 10px auto;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   header {
     font-size: 30px;
     margin: 20px 0;
@@ -256,35 +276,117 @@ footer p {
     width: 90%;
     margin: 10px auto;
   }
-  .products img {
-    width: 100%;
-    border-radius: 10px;
-  }
-  .social-icons {
-    width: 60%;
-    justify-content: space-around;
-    margin: 10px auto;
+  .ordered-cart {
+    max-width: 700px;
   }
 }
 
-@media (min-width: 601) {
-  .products .quantity {
-    display: block;
-  }
-  .all-content {
-    display: flex;
-    justify-content: space-around;
-    margin: 10px auto;
-  }
-  .products-list {
-    width: 70%;
-  }
-  .products img {
-    width: 30px;
-    border-radius: 10px;
-  }
+@media (min-width: 768px) and (max-width: 1024px) {
   header {
     font-size: 35px;
-    margin: 20px 0;
+    margin: 20px 5% 20px 3%;
+  }
+  main .products-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2%;
+    width: 54%;
+    margin: 0 5% 0 3%;
+    align-items: center;
+    justify-content: center;
+  }
+  .add-cart,
+  .products .quantity {
+    width: 100px;
+    padding: 4px 5px;
+    /* margin: 1px auto !important; */
+  }
+  .add-cart span {
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .circle-box {
+    width: 15px;
+    height: 15px;
+  }
+  .caption h6 {
+    font-size: 14px;
+  }
+  .caption h3 {
+    font-size: 14px;
+  }
+  .caption p,
+  .item-count {
+    font-size: 14px;
+  }
+  .caption {
+    margin-right: 0px !important;
+  }
+  .ordered-cart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-top: 4%;
+    margin-right: 3%;
+  }
+  /* 
+
+  .empty-cart,
+  .products .quantity {
+    width: 100px !important;
+    margin: 10px 30% !important;
+  }
+
+  .added-cart ul li h4 {
+    font-size: 20px;
+  }
+  .added-cart ul li p {
+    font-size: 16px;
+  }
+  .remove-item {
+    width: 20px;
+    height: 20px;
+  }
+  .carbon-neutral {
+    padding-left: 20% !important;
+    padding-right: 20% !important;
+  }
+  .carbon-neutral p {
+    font-size: 16px;
+  }
+  .added-cart button {
+    width: 100%;
+    font-size: 16px;
+  }
+  .added-cart .total-order p {
+    font-size: 17px;
+  } */
+  .order-confirmation .order-confirmed {
+    width: 350px;
+  }
+  @media (min-width: 1025px) {
+    header {
+      font-size: 35px;
+      margin: 20px 5%;
+    }
+    main .products-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2%;
+      width: 65%;
+      margin: 0 5%;
+      align-items: center;
+      justify-content: center;
+    }
+    .products img {
+      width: 100%;
+    }
+    .ordered-cart {
+      position: fixed;
+      top: 0;
+      right: 0;
+      margin-top: 4%;
+      margin-right: 3%;
+    }
   }
 }
