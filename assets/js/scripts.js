@@ -1,18 +1,22 @@
 const products = document.querySelectorAll(".products");
 const added_list = document.querySelector(".added-cart ul");
+const modal = document.querySelector(".order-confirmation");
 const confirmed_list = document.querySelector(".order-confirmation ul");
+
 products.forEach((product) => {
   const added_cart = document.querySelector(".added-cart");
   const empty_cart = document.querySelector(".empty-cart");
   var total_item = document.querySelector(".ordered-cart h2 span");
   const quantity_div = product.querySelector(".quantity");
   const img = product.querySelector("img");
-  const ul = document.querySelectorAll("ul");
   const list_name = product.querySelector(".caption h3").innerHTML;
   const list_price = product.querySelector(".caption p span").innerHTML;
   const list_price_ammount = parseFloat(list_price);
   var list_count = product.querySelector(".quantity span").innerHTML;
+  const all_total = document.querySelectorAll(".total-order h1");
+
   result = 0;
+  totalPrice = 0;
 
   const add_to_cart = product.querySelector(".add-cart");
   add_to_cart.addEventListener("click", () => {
@@ -25,7 +29,7 @@ products.forEach((product) => {
   decrease.addEventListener("click", () => {
     var quantity = product.querySelector(".quantity span");
     var number = quantity.innerHTML;
-    console.log(number);
+    // console.log(number);
     num = parseInt(number, 10);
     if (num > 0) {
       num = num - 1;
@@ -35,6 +39,12 @@ products.forEach((product) => {
     } else {
       return;
     }
+
+    totalPrice = totalPrice - list_price_ammount;
+    all_total.forEach((all_total) => {
+      all_total.innerHTML = "$" + totalPrice.toFixed(2);
+    });
+
     cart_list();
     displayed_box();
   });
@@ -42,15 +52,20 @@ products.forEach((product) => {
   const increase = product.querySelector(".increase");
   increase.addEventListener("click", () => {
     var quantity = product.querySelector(".quantity span");
-    console.log(quantity);
+    // console.log(quantity);
     var number = quantity.innerHTML;
-    console.log(number);
+    // console.log(number);
     num = parseInt(number, 10);
     num += 1;
     quantity.innerHTML = num;
-    console.log(quantity.innerHTML);
+    // console.log(quantity.innerHTML);
     result += 1;
     total_item.innerHTML = result;
+
+    totalPrice = totalPrice + list_price_ammount;
+    all_total.forEach((all_total) => {
+      all_total.innerHTML = "$" + totalPrice.toFixed(2);
+    });
 
     cart_list();
     displayed_box();
@@ -110,43 +125,18 @@ products.forEach((product) => {
         let quantity = product.querySelector(".quantity span");
         result -= parseInt(quantity.innerHTML);
         total_item.innerHTML = result;
-        console.log(result);
+        // console.log(result);
         quantity.innerHTML = num;
         displayed_box();
+        add_to_cart.style.display = "flex";
+        quantity_div.style.display = "none";
+        img.classList.remove("selected");
       });
     }
-
-    // // confirmed order list
-    // const li_2 = document.createElement("li");
-    // const image_div = document.createElement("div");
-    // image_div.classList.add("image");
-    // const item_detail = document.createElement("div");
-    // item_detail.classList.add("item_detail");
-    // const name_container = document.createElement("div");
-    // name_container.classList.add("item-name-container");
-    // const info_container = document.createElement("div");
-    // info_container.classList.add("item-info-container");
-    // const total = document.createElement("div");
-    // total.classList.add("total");
-
-    // const clonedImg = img.cloneNode(true);
-    // image_div.append(clonedImg);
-    // const clonedName = name.cloneNode(true);
-    // name_container.append(clonedName);
-    // const clonedAmount = amount.cloneNode(true);
-    // console.log(amount);
-    // const clonedPrice = price.cloneNode(true);
-
-    // info_container.append(clonedAmount, clonedPrice);
-    // item_detail.append(name_container, info_container);
-    // const clonedTotal = each_total.cloneNode(true);
-    // total.append(clonedTotal.textContent);
-    // li_2.append(image_div, item_detail, total);
-    // confirmed_list.append(li_2);
-    // console.log(confirmed_list);
+    const Confirm_button = document.querySelector(".Confirm_button");
+    Confirm_button.addEventListener("click", confirm);
   }
 
-  console.log(result);
   function displayed_box() {
     if (result == 0) {
       empty_cart.style.display = "block";
@@ -156,4 +146,89 @@ products.forEach((product) => {
       added_cart.style.display = "block";
     }
   }
+
+  function confirm() {
+    // console.log(added_list);
+    const confirmed_ul =
+      this.previousElementSibling.previousElementSibling.previousElementSibling;
+    console.log(confirmed_ul);
+    console.trace();
+
+    const confirmed_li = confirmed_ul.querySelectorAll("li");
+    // console.log(confirmed_li);
+    // console.trace();
+    confirmed_list.innerHTML = "";
+    confirmed_li.forEach((list) => {
+      // console.log(list);
+      const li_2 = document.createElement("li");
+      const image_div = document.createElement("div");
+      image_div.classList.add("image");
+      const item_detail = document.createElement("div");
+      item_detail.classList.add("item_detail");
+      const name_container = document.createElement("div");
+      name_container.classList.add("item-name-container");
+      const info_container = document.createElement("div");
+      info_container.classList.add("item-info-container");
+      const total = document.createElement("div");
+      total.classList.add("total");
+
+      const name = document.createElement("h4");
+      name.innerHTML = list.querySelector("div h4").innerHTML;
+      const amount = document.createElement("p");
+      amount.classList.add("item-count");
+      amount.innerHTML = list.querySelector(
+        "div .quantity .item-count"
+      ).innerHTML;
+      const price = document.createElement("p");
+      price.innerHTML = list.querySelector(
+        "div .quantity .item-price"
+      ).innerHTML;
+      const each_total = document.createElement("p");
+      each_total.innerHTML = list.querySelector(
+        "div .quantity .each-total"
+      ).innerHTML;
+
+      const clonedImg = img.cloneNode(true);
+      image_div.append(clonedImg);
+      const clonedName = name.cloneNode(true);
+      name_container.append(clonedName);
+      info_container.append(amount, price);
+      item_detail.append(name_container, info_container);
+      const clonedTotal = each_total.cloneNode(true);
+      total.append(clonedTotal.textContent);
+      li_2.append(image_div, item_detail, each_total);
+      confirmed_list.append(li_2);
+      console.log(confirmed_list);
+    });
+
+    modal.style.display = "flex";
+  }
+
+  const back_to_order = document.querySelector(".btn2");
+  back_to_order.addEventListener("click", function () {
+    modal.style.display = "none";
+    empty_cart.style.display = "block";
+    added_cart.style.display = "none";
+    const ul = added_cart.querySelector("ul");
+    ul.innerHTML = "";
+
+    products.forEach((product) => {
+      add_to_cart.style.display = "flex";
+      quantity_div.style.display = "none";
+      img.classList.remove("selected");
+    });
+
+    const all_amount = document.querySelectorAll(".quantity span");
+    all_amount.forEach((amount) => {
+      // console.log(amount);
+      amount.innerHTML = "0";
+    });
+    result = 0;
+    total_item.innerHTML = result;
+
+    totalPrice = 0;
+    all_amount.innerHTML = totalPrice.toFixed(2);
+  });
 });
+
+// confirmed order list
