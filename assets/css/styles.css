@@ -36,6 +36,12 @@ header {
   background-color: hsl(0, 0%, 100%);
   cursor: pointer;
 }
+.add-cart:hover {
+  color: hsl(0, 0%, 100%);
+  opacity: 0.9;
+  background-color: hsl(14, 86%, 42%);
+  /* width: 170px; */
+}
 .add-cart span {
   font-size: 16px;
   font-weight: 500;
@@ -53,6 +59,10 @@ header {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+.circle-box:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: px;
 }
 .add-cart,
 .products .quantity {
@@ -244,9 +254,6 @@ button {
   padding: 20px;
   flex-wrap: wrap; /* Responsive layout for footer content */
 }
-.social-icons {
-  display: flex;
-}
 a,
 footer p {
   color: hsl(12, 20%, 44%);
@@ -262,11 +269,14 @@ footer p {
   margin-top: 50px;
 }
 .social-icons {
-  width: 60%;
+  display: flex;
+  width: 40%;
   justify-content: space-around;
   margin: 10px auto;
 }
-
+.social-icons a {
+  font-size: 20px;
+}
 @media (max-width: 767px) {
   header {
     font-size: 30px;
@@ -278,6 +288,9 @@ footer p {
   }
   .ordered-cart {
     max-width: 700px;
+  }
+  .social-icons {
+    width: 55%;
   }
 }
 
@@ -364,29 +377,26 @@ footer p {
   .order-confirmation .order-confirmed {
     width: 350px;
   }
-  @media (min-width: 1025px) {
-    header {
-      font-size: 35px;
-      margin: 20px 5%;
-    }
-    main .products-list {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2%;
-      width: 65%;
-      margin: 0 5%;
-      align-items: center;
-      justify-content: center;
-    }
-    .products img {
-      width: 100%;
-    }
-    .ordered-cart {
-      position: fixed;
-      top: 0;
-      right: 0;
-      margin-top: 4%;
-      margin-right: 3%;
-    }
+}
+@media (min-width: 1025px) {
+  header {
+    font-size: 35px;
+    margin: 20px 5% 20px 3%;
+  }
+  main .products-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2%;
+    width: 65%;
+    margin: 0 5% 0 3%;
+    align-items: center;
+    justify-content: center;
+  }
+  .ordered-cart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-top: 4%;
+    margin-right: 3%;
   }
 }
