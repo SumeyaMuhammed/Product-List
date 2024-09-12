@@ -149,7 +149,7 @@ products.forEach((product) => {
 
   function displayed_box() {
     if (result == 0) {
-      empty_cart.style.display = "block";
+      empty_cart.style.display = "flex";
       added_cart.style.display = "none";
     } else {
       empty_cart.style.display = "none";
@@ -217,7 +217,7 @@ products.forEach((product) => {
   const back_to_order = document.querySelector(".btn2");
   back_to_order.addEventListener("click", function () {
     modal.style.display = "none";
-    empty_cart.style.display = "block";
+    empty_cart.style.display = "flex";
     added_cart.style.display = "none";
     const ul = added_cart.querySelector("ul");
     ul.innerHTML = "";
