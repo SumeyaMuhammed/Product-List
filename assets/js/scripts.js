@@ -12,12 +12,12 @@ products.forEach((product) => {
   const list_name = product.querySelector(".caption h3").innerHTML;
   const list_price = product.querySelector(".caption p span").innerHTML;
   const list_price_ammount = parseFloat(list_price);
-  var list_count = product.querySelector(".quantity span").innerHTML;
   const all_total = document.querySelectorAll(".total-order h1");
 
   result = 0;
   totalPrice = 0;
 
+  // add to cart button function (for each product)
   const add_to_cart = product.querySelector(".add-cart");
   add_to_cart.addEventListener("click", () => {
     add_to_cart.style.display = "none";
@@ -25,11 +25,11 @@ products.forEach((product) => {
     img.classList.add("selected");
   });
 
+  // decrease (-) button function
   const decrease = product.querySelector(".decrease");
   decrease.addEventListener("click", () => {
     var quantity = product.querySelector(".quantity span");
     var number = quantity.innerHTML;
-    // console.log(number);
     num = parseInt(number, 10);
     if (num > 0) {
       num = num - 1;
@@ -40,6 +40,7 @@ products.forEach((product) => {
       return;
     }
 
+    // remove decreased amount from total amount of products
     totalPrice = totalPrice - list_price_ammount;
     all_total.forEach((all_total) => {
       all_total.innerHTML = "$" + totalPrice.toFixed(2);
@@ -49,19 +50,18 @@ products.forEach((product) => {
     displayed_box();
   });
 
+  // increase (+) button function
   const increase = product.querySelector(".increase");
   increase.addEventListener("click", () => {
     var quantity = product.querySelector(".quantity span");
-    // console.log(quantity);
     var number = quantity.innerHTML;
-    // console.log(number);
     num = parseInt(number, 10);
     num += 1;
     quantity.innerHTML = num;
-    // console.log(quantity.innerHTML);
     result += 1;
     total_item.innerHTML = result;
 
+    // add to total amount
     totalPrice = totalPrice + list_price_ammount;
     all_total.forEach((all_total) => {
       all_total.innerHTML = "$" + totalPrice.toFixed(2);
@@ -71,11 +71,11 @@ products.forEach((product) => {
     displayed_box();
   });
 
+  // cart function
   function cart_list() {
     let existingItem = document.querySelector(`[data-item="${list_name}"]`);
-
+    // add to the existing list
     if (existingItem) {
-      // your cart list
       let editedAmount = existingItem.querySelector(".item-count");
       if (num > 0) {
         editedAmount.textContent = num + "x";
@@ -85,8 +85,10 @@ products.forEach((product) => {
       let editedTotal = existingItem.querySelector(".each-total");
       let each_total_amount = list_price_ammount * num;
       editedTotal.innerHTML = "$" + each_total_amount.toFixed(2);
-    } else {
-      // cart list
+    }
+
+    // create new cart list
+    else {
       li_1 = document.createElement("li");
       li_1.setAttribute("data-item", list_name);
 
@@ -121,22 +123,26 @@ products.forEach((product) => {
       li_1.append(div, remove_icon);
       added_list.append(li_1);
 
-      // remove list function
+      // remove list (x) function
       remove_icon.addEventListener("click", function () {
+        // remove the list from cart
         let parentList = this.parentNode;
         parentList.parentNode.removeChild(parentList);
+
+        // subtract removed list amount from total amount
         let quantity = product.querySelector(".quantity span");
         result -= parseInt(quantity.innerHTML);
         total_item.innerHTML = result;
-        // console.log(result);
-        // num = 0;
+
+        // refresh quantity of the list
         quantity.innerHTML = "0";
         displayed_box();
         add_to_cart.style.display = "flex";
         quantity_div.style.display = "none";
         img.classList.remove("selected");
+
+        // subtract removed list price from total price
         removedTotal = list_price_ammount * num;
-        console.log(removedTotal, num, list_price_ammount);
         totalPrice = totalPrice - removedTotal;
         all_total.forEach((all_total) => {
           all_total.innerHTML = "$" + totalPrice.toFixed(2);
@@ -147,6 +153,7 @@ products.forEach((product) => {
     Confirm_button.addEventListener("click", confirm);
   }
 
+  // desplay function on cart
   function displayed_box() {
     if (result == 0) {
       empty_cart.style.display = "flex";
@@ -157,19 +164,18 @@ products.forEach((product) => {
     }
   }
 
+  // cofirm button function
   function confirm() {
-    // console.log(added_list);
     const confirmed_ul =
       this.previousElementSibling.previousElementSibling.previousElementSibling;
     console.log(confirmed_ul);
     console.trace();
 
     const confirmed_li = confirmed_ul.querySelectorAll("li");
-    // console.log(confirmed_li);
-    // console.trace();
     confirmed_list.innerHTML = "";
+
+    // add confirmed lists to the modal
     confirmed_li.forEach((list) => {
-      // console.log(list);
       const li_2 = document.createElement("li");
       const image_div = document.createElement("div");
       image_div.classList.add("image");
@@ -215,6 +221,7 @@ products.forEach((product) => {
   }
 
   const back_to_order = document.querySelector(".btn2");
+  // back from confirmation modal
   back_to_order.addEventListener("click", function () {
     modal.style.display = "none";
     empty_cart.style.display = "flex";
@@ -222,15 +229,16 @@ products.forEach((product) => {
     const ul = added_cart.querySelector("ul");
     ul.innerHTML = "";
 
+    // refresh all
     products.forEach((product) => {
       add_to_cart.style.display = "flex";
       quantity_div.style.display = "none";
       img.classList.remove("selected");
     });
 
+    // reset all
     const all_amount = document.querySelectorAll(".quantity span");
     all_amount.forEach((amount) => {
-      // console.log(amount);
       amount.innerHTML = "0";
     });
     result = 0;
@@ -240,5 +248,3 @@ products.forEach((product) => {
     all_amount.innerHTML = totalPrice.toFixed(2);
   });
 });
-
-// confirmed order list
